@@ -10,6 +10,19 @@ namespace CoreGiris.Controllers
 {
     public class HomeController : Controller
     {
+        List<Kisi> kisiler = new List<Kisi>()
+        {
+            new Kisi()
+            {
+                Ad = "Kamil",
+                Soyad = "Falan"
+            },
+            new Kisi()
+            {
+                Ad = "Hakkı",
+                Soyad = "Filan"
+            }
+        };
         public IActionResult Index()
         {
             return View();
@@ -18,8 +31,8 @@ namespace CoreGiris.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
+            ViewBag.Hello = "Hello World";
+            return View(kisiler);
         }
 
         public IActionResult Contact()
