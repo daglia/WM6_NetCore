@@ -3,6 +3,7 @@
     ViewData["Title"] = "Kategori - Index";
 }
 <a asp-action="Add" asp-controller="Category" class="btn btn-success">Yeni Kategori Ekle</a>
+<h3>@TempData["Message"]</h3>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -26,6 +27,9 @@
                         <td>
                             <a asp-action="Edit" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-info">
                                 Düzenle
+                            </a>
+                            <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger">
+                                Sil
                             </a>
                         </td>
                     </tr>
