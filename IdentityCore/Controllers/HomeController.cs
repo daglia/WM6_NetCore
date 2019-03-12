@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using IdentityCore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IdentityCore.Controllers
 {
@@ -28,7 +29,7 @@ namespace IdentityCore.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();
