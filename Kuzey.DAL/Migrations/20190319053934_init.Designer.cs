@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kuzey.DAL.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190318092156_init")]
+    [Migration("20190319053934_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,11 @@ namespace Kuzey.DAL.Migrations
                     b.Property<string>("CreatedUserId")
                         .HasMaxLength(450);
 
+                    b.Property<DateTime?>("UpdatedDate");
+
+                    b.Property<string>("UpdatedUserId")
+                        .HasMaxLength(450);
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -58,6 +63,11 @@ namespace Kuzey.DAL.Migrations
                         .HasMaxLength(50);
 
                     b.Property<decimal>("UnitPrice");
+
+                    b.Property<DateTime?>("UpdatedDate");
+
+                    b.Property<string>("UpdatedUserId")
+                        .HasMaxLength(450);
 
                     b.HasKey("Id");
 
@@ -196,9 +206,11 @@ namespace Kuzey.DAL.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("ProviderKey");
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -229,9 +241,11 @@ namespace Kuzey.DAL.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value");
 
